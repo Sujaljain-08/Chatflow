@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatFlow - Real-time Chat</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Login Screen -->
+        <div id="loginScreen" class="login-screen">
+            <div class="login-card">
+                <div class="logo">
+                    <i class="fas fa-comments"></i>
+                    <h1>ChatFlow</h1>
+                </div>
+                <p class="subtitle">Connect with friends in real-time</p>
+                <form id="loginForm" class="login-form">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="usernameInput" placeholder="Enter your username" required>
+                    </div>
+                    <button type="submit" class="join-btn">
+                        <span>Join Chat</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-bolt"></i>
+                        <span>Real-time messaging</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-users"></i>
+                        <span>Active user list</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-history"></i>
+                        <span>Message history</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Chat Interface -->
+        <div id="chatInterface" class="chat-interface hidden">
+            <!-- Header -->
+            <header class="chat-header">
+                <div class="header-left">
+                    <div class="logo-small">
+                        <i class="fas fa-comments"></i>
+                        <span>ChatFlow</span>
+                    </div>
+                    <div class="connection-status">
+                        <div id="connectionIndicator" class="status-indicator connecting">
+                            <i class="fas fa-circle"></i>
+                            <span id="connectionText">Connecting...</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span id="currentUsername">Username</span>
+                    </div>
+                    <button id="leaveBtn" class="leave-btn" title="Leave Chat">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="chat-main">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="sidebar-header">
+                        <h3>
+                            <i class="fas fa-users"></i>
+                            Active Users
+                            <span id="userCount" class="user-count">0</span>
+                        </h3>
+                    </div>
+                    <div id="usersList" class="users-list">
+                        <!-- Users will be populated here -->
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h4>
+                            <i class="fas fa-cog"></i>
+                            Settings
+                        </h4>
+                        <div class="settings">
+                            <label class="setting-item">
+                                <input type="checkbox" id="soundToggle" checked>
+                                <span>Sound notifications</span>
+                            </label>
+                            <label class="setting-item">
+                                <input type="checkbox" id="typingToggle" checked>
+                                <span>Show typing indicators</span>
+                            </label>
+                            <label class="setting-item">
+                                <input type="checkbox" id="darkModeToggle">
+                                <span>Dark mode</span>
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Chat Area -->
+                <main class="chat-area">
+                    <div id="messagesContainer" class="messages-container">
+                        <div class="welcome-message">
+                            <i class="fas fa-rocket"></i>
+                            <h3>Welcome to ChatFlow!</h3>
+                            <p>Start chatting with friends in real-time</p>
+                        </div>
+                    </div>
+
+                    <!-- Typing Indicator -->
+                    <div id="typingIndicator" class="typing-indicator hidden">
+                        <div class="typing-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span id="typingText">Someone is typing...</span>
+                    </div>
+
+                    <!-- Message Input -->
+                    <div class="message-input-container">
+                        <form id="messageForm" class="message-form">
+                            <div class="input-wrapper">
+                                <input type="text" id="messageInput" placeholder="Type your message..." autocomplete="off">
+                                <button type="button" id="emojiBtn" class="emoji-btn" title="Add emoji">
+                                    <i class="fas fa-smile"></i>
+                                </button>
+                            </div>
+                            <button type="submit" id="sendBtn" class="send-btn" title="Send message">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

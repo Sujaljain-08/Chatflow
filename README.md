@@ -1,30 +1,51 @@
-# ChatFlow - Real-time Chat Application
+# ChatFlow
 
-ChatFlow is a modern, real-time chat application that allows users to communicate with each other in real-time. It features a clean, responsive interface and supports multiple users, message history, and active user tracking.
+A modern, real-time chat application built with Node.js and Socket.IO, featuring a clean and responsive interface.
 
-## ✨ Features
+## Project Structure
 
-- **Real-time Messaging**: Instant message delivery between users
-- **User Presence**: See who's online in real-time
-- **Message History**: View previous messages in the chat
-- **Responsive Design**: Works on desktop and mobile devices
-- **User Notifications**: Visual and sound notifications for new messages
-- **Clean UI/UX**: Modern and intuitive interface
-- **Privacy-Focused**: Control over message history visibility
+```
+chatflow/
+├── src/                    # Source files
+│   ├── public/            # Static files
+│   │   ├── css/           # Stylesheets
+│   │   ├── js/            # Client-side JavaScript
+│   │   └── index.html     # Main HTML file
+│   ├── server.js          # Express server setup
+│   └── socket/            # Socket.IO event handlers
+├── .gitignore             # Git ignore rules
+└── package.json           # Project configuration
+```
 
-## 🚀 Getting Started
+## Features
 
-### Prerequisites
+- Real-time messaging with Socket.IO
+- User presence indicators
+- Responsive design for all devices
+- Message read receipts
+- Typing indicators
+- Emoji support
+- Message history
+- User authentication (optional)
+- Private messaging
+- File sharing
+- Message search
+- Message reactions
+- Dark/Light theme
+- Push notifications
+- End-to-end encryption (planned)
 
-- Node.js (v14 or higher)
-- npm (comes with Node.js)
+## Prerequisites
 
-### Installation
+- Node.js 16.x or higher
+- npm 8.x or higher
+
+## Installation
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd chatflow-windsurf/backend
+   git clone https://github.com/yourusername/chatflow.git
+   cd chatflow
    ```
 
 2. Install dependencies:
@@ -32,7 +53,7 @@ ChatFlow is a modern, real-time chat application that allows users to communicat
    npm install
    ```
 
-3. Start the server:
+3. Start the development server:
    ```bash
    npm start
    ```
@@ -42,49 +63,74 @@ ChatFlow is a modern, real-time chat application that allows users to communicat
    http://localhost:3000
    ```
 
-## 🛠️ Technologies Used
+## Development
 
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Backend**: Node.js, Express.js
-- **Real-time Communication**: Socket.IO
-- **Styling**: Custom CSS with Flexbox and Grid
-- **Icons**: Font Awesome
-- **Fonts**: Google Fonts (Inter)
+### Available Scripts
 
-## 📁 Project Structure
+- `npm start` - Start the development server
+- `npm run dev` - Start in development mode with nodemon
+- `npm test` - Run tests
+- `npm run lint` - Run ESLint
+- `npm run build` - Build for production
 
+## Configuration
+
+Create a `.env` file in the root directory with the following variables:
+
+```env
+PORT=3000
+NODE_ENV=development
+MONGODB_URI=your_mongodb_uri
+JWT_SECRET=your_jwt_secret
 ```
-backend/
-├── src/
-│   ├── index.html      # Main HTML file
-│   ├── script.js       # Client-side JavaScript
-│   ├── server.js       # Server-side code
-│   └── styles.css      # Styles for the application
-├── package.json        # Project dependencies and scripts
-└── package-lock.json   # Lock file for dependencies
+
+## Testing
+
+Run the test suite:
+
+```bash
+npm test
 ```
 
-## 📝 Usage
+## Deployment
 
-1. Enter a username on the login screen
-2. Click "Join Chat" to enter the chat room
-3. Start sending messages in real-time
-4. See who's online in the sidebar
-5. Toggle settings like sound notifications
-6. Click the leave button to exit the chat
+### Production
 
-## 🔒 Privacy
+1. Build the application:
+   ```bash
+   npm run build
+   ```
 
-- Usernames are case-insensitive
-- Message history is stored in memory (cleared on server restart)
-- No personal data is stored permanently
+2. Start the production server:
+   ```bash
+   NODE_ENV=production node src/server.js
+   ```
 
-## 📄 License
+### Docker
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Build and run with Docker:
 
-## 🙏 Acknowledgments
+```bash
+docker build -t chatflow .
+docker run -p 3000:3000 chatflow
+```
 
-- Built with ❤️ using modern web technologies
-- Inspired by popular chat applications
-- Special thanks to all contributors
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Security
+
+Please report any security issues to security@example.com
+
+## Support
+
+For support, email support@example.com or open an issue.
+
+---
+
+ 2025 ChatFlow. All rights reserved.

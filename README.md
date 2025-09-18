@@ -63,57 +63,6 @@ chatflow/
    http://localhost:3000
    ```
 
-## Development
-
-### Available Scripts
-
-- `npm start` - Start the development server
-- `npm run dev` - Start in development mode with nodemon
-- `npm test` - Run tests
-- `npm run lint` - Run ESLint
-- `npm run build` - Build for production
-
-## Configuration
-
-Create a `.env` file in the root directory with the following variables:
-
-```env
-PORT=3000
-NODE_ENV=development
-MONGODB_URI=your_mongodb_uri
-JWT_SECRET=your_jwt_secret
-```
-
-## Testing
-
-Run the test suite:
-
-```bash
-npm test
-```
-
-## Deployment
-
-### Production
-
-1. Build the application:
-   ```bash
-   npm run build
-   ```
-
-2. Start the production server:
-   ```bash
-   NODE_ENV=production node src/server.js
-   ```
-
-### Docker
-
-Build and run with Docker:
-
-```bash
-docker build -t chatflow .
-docker run -p 3000:3000 chatflow
-```
 
 ## Contributing
 
@@ -123,13 +72,7 @@ docker run -p 3000:3000 chatflow
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## Security
 
-Please report any security issues to security@example.com
-
-## Support
-
-For support, email support@example.com or open an issue.
 
 ---
 
